@@ -13,7 +13,6 @@ class Libro(models.Model):
     ISBN = models.CharField(max_length=120)
     precio = models.IntegerField()
     created = models.DateTimeField(auto_now = True)
-    update  = models.DateTimeField(auto_now_add = True)
 
     def __str__(self):
         return str(self.Nombre)
