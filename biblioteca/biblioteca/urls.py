@@ -19,19 +19,17 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 from .views import home
-from libros.views import home_libros , libros_lista_libros, libros_detalle_libro
-from libros.views import LibroCreateView
+from libros.views import home_libros , libros_lista_libros, libros_detalle_libro,LibroListView
+from libros.views import LibroCreateView, LibroUpdateView
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', home, name='home'),
     url(r'^libros/$', home_libros, name='home_libros'),
     url(r'^libros/detalle/(?P<id>\d+)/$', libros_detalle_libro, name='libro_detalle'),
     url(r'^libros/detalle/(?P<id>\d0)/$',libros_detalle_libro, name='libro_detalle'),
-    url(r'^libros/lista/$', libros_lista_libros, name='libro_lista'),
-    # url(r'^libros/detalle$', libros_detalle_libro, name='libro_detalle'),
+    url(r'^libros/lista/$', LibroListView.as_view(), name='libro_lista'),
     url(r'^libros/crear$', LibroCreateView.as_view(), name='libro_create'),
-    # url(r'^libros/detalle/(?P<id>\d0)/$', libros_detalle_libro, name='detalle'),
-    # url(r'^libros/listac$', LibroListView.as_view(), name='libro_listac'),
+    url(r'^libros/detalle/(?P<pk>\d+)/actualizar/$', LibroUpdateView.as_view(), name='Libro_edit'),
 
 
 ]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

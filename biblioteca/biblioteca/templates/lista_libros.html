@@ -72,53 +72,6 @@
         </form>
       </div>
     </nav>
-
-    <!-- <div class="container-fluid">
-      <div class="row">
-        <nav class="col-sm-3 col-md-2 d-none d-sm-block bg-light sidebar">
-          <ul class="nav nav-pills flex-column">
-            <li class="nav-item">
-              <a class="nav-link active" href="#">Overview <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Reports</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Analytics</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Export</a>
-            </li>
-          </ul>
-
-          <ul class="nav nav-pills flex-column">
-            <li class="nav-item">
-              <a class="nav-link" href="#">Nav item</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Nav item again</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">One more nav</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Another nav item</a>
-            </li>
-          </ul> -->
-<!--
-          <ul class="nav nav-pills flex-column">
-            <li class="nav-item">
-              <a class="nav-link" href="#">Nav item again</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">One more nav</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Another nav item</a>
-            </li>
-          </ul>
-        </nav> -->
-
         <main class="col-sm-9 ml-sm-auto col-md-10 pt-3" role="main">
           <h1>Lista de libros en existencia</h1>
 
@@ -128,20 +81,15 @@
 
           <h2></h2>
           <div class="album text-muted">
+            {% for object in object_list %}
             <div class="container">
-              {% for i in result%}
-              <div class="row">
-                <div class="card" style="width: 20rem;">
-                  <div class="card-body">
-                    <h1>{{i.Nombre}}</h1>
-                    <p> {{i.Autor}}</p>
-                    <h6 class="card-subtitle mb-2 text-muted">{{i.created|timesince}}</h6>
-                    <a href="#" class="btn btn-outline-primary">Compartir</a>
-                    <a href="#" class="btn btn-outline-secondary">Mas</a>
+                    <h1>{{object.Nombre}}</h1>
+                    <p> {{object.Autor}}</p>
+                    <a href="/libros/detalle/{{object.id}}/">detalle libro</a> {{object.created|timesince}}  &nbsp;
                   </div>
                 </div>
+                {% endfor %}
               </div>
-              {% endfor %}
             </main>
           </div>
         </div>
