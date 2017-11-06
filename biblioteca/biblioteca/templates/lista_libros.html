@@ -83,13 +83,14 @@
                   {% for i in object_list %}
                   <h1>{{i.Nombre}}</h1>
                   <p>{{i.Autor}}</p>
-                  <p><a href="/libros/detalle/{{i.id}}/">detalle libro</a> {{object.created|timesince}} &nbsp;</p>
+                 <p class="alert alert-success" role="alert">{{i.created|timesince}}</p>
+                  <p><a href="/libros/detalle/{{i.id}}/">detalle libro</a>  &nbsp;</p>
 
-                    <a class="btn btn-outline-secondary btn-sm" href="/libros/detalle/{{i.id}}/eliminar/" role="button">Eliminar</a>
-                    <a class="btn btn-outline-secondary btn-sm" href="/libros/detalle/{{i.id}}/actualizar/" role="button">Actualizar</a>
-                    <a href="#" class="btn btn-outline-secondary btn-sm"> Twitter</a>
-                    <a href="#" class="btn btn-outline-secondary btn-sm">Like on Facebook</a>
-                    <a href="#" class="btn btn-outline-secondary btn-sm">Email me</a>
+                    <a class="btn alert-success" href="/libros/detalle/{{i.id}}/eliminar/" role="button">Eliminar</a>
+                    <a class="btn alert-success"  href="/libros/detalle/{{i.id}}/actualizar/" role="button">Actualizar</a>
+                    <a href="#" class="btn alert-success" > Twitter</a>
+                    <a href="#" class="btn alert-success" >Like on Facebook</a>
+                    <a href="#" class="btn alert-success" >Email me</a>
                   </p>
                 </div>
               </div>
