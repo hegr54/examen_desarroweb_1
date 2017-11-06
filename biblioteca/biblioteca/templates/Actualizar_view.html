@@ -8,22 +8,18 @@
   </head>
   <body>
 
-    {% block Barra %}
+    {% block navbar %}
     <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
-      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-        <a class="navbar-brand" href="#">actualizar <span class="sr-only">(current)</span></a>
+            <a class="btn btn-danger" href="/libros/lista/">lista de libros</a>
+        <a class="navbar-brand-center" href="#">actualizar <span class="sr-only">(current)</span></a>
     </nav>
     {% endblock %}
 
     {% block Libro %}
-      <div class="jumbotron jumbotron-fluid">
-        <div class="container">
           <form class="form" method="POST" action="">
             {% csrf_token %}
             {{form.as_p}}
-            <input class="btn btn-success" type="submit" name="" value="Actualizar">
+            <input class="btn btn-outline-dangers " type="submit" name="" value="Actualizar">
           </form>
         </div>
       </div>

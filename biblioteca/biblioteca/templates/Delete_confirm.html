@@ -6,22 +6,27 @@
     {% block title %}Eliminar Libro{% endblock %}
   </head>
   <body>
-{% block Barra %}
-<nav class="navbar navbar-toggleable-md navbar-light bg-faded">
-  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-    <a class="navbar-brand" href="#">Eliminar libro <span class="sr-only">(current)</span></a>
-</nav>
-{% endblock %}
-
+    {% block navbar %}
+    <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+        <a class="navbar-brand" href="#">Eliminar libro <span class="sr-only">(current)</span></a>
+    </nav>
+    {% endblock %}
 {% block Libro %}
-  <div class="jumbotron">
-    <div class="col-sm-8 mx-auto">
-      <form class="" action="" method="post">{% csrf_token %}
-        <p>Estas seguro que quieres eliminar "{{object}}""  ?</p>
-        <input class="btn btn-danger" type="submit" name="" value="Confirmar">
+        <form class="" action="" method="post">
+           {% csrf_token %}
+
+
+           <h1 class="text-muted">Estas seguro que quieres eliminar?</h1><h3>"{{object}}""</h3>
       </form>
+      <div class="modal-footer">
+        <input class="btn btn-danger" type="submit" name="" value="Confirmar">
+         <a class="btn btn-danger" href="/libros/lista/">cancelar</a>
+      </div>
     </div>
   </div>
-{% endblock %}
+</div>
+</div>
+ {%endblock%}

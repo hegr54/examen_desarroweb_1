@@ -26,10 +26,10 @@ urlpatterns = [
     url(r'^$', home, name='home'),
     url(r'^libros/$', home_libros, name='home_libros'),
     url(r'^libros/detalle/(?P<id>\d+)/$', libros_detalle_libro, name='libro_detalle'),
-    url(r'^libros/detalle/(?P<id>\d0)/$',libros_detalle_libro, name='libro_detalle'),
+    # url(r'^libros/detalle/(?P<id>\d0)/$',libros_detalle_libro, name='libro_detalle'),
     url(r'^libros/lista/$', LibroListView.as_view(), name='libro_lista'),
     url(r'^libros/crear$', LibroCreateView.as_view(), name='libro_create'),
-    url(r'^libros/detalle/(?P<pk>\d+)/actualizar/$', LibroUpdateView.as_view(), name='Libro_edit'),
+    url(r'^libros/detalle/(?P<pk>\d+)/actualizar/$', LibroUpdateView.as_view(), name='Libro_editar'),
     url(r'^libros/detalle/(?P<pk>\d+)/eliminar/$', LibroDeleteView.as_view(), name='Libro_eliminado')
 
 

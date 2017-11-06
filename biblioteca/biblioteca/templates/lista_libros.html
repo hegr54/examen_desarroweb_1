@@ -46,7 +46,7 @@
       </div>
     </div>
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-      <a class="navbar-brand" href="#">lista de libros</a>
+      <a class="navbar-brand" href="/libros/lista/">lista de libros</a>
       <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -54,10 +54,10 @@
       <div class="collapse navbar-collapse" id="navbarsExampleDefault">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
-            <a class="btn btn-success" href="/libros/detalle/{{i.id}}/Actualizar/" role="button">Actualizar</a>
+            <!-- <a class="btn btn-success" href="/libros/detalle/{{i.id}}/Actualizar/" role="button">Actualizar</a> -->
           </li>
           <li class="nav-item">
-            <a class="btn btn-success" href="/libros/detalle/{{i.id}}/Eliminar/" role="button">Actualizar</a>
+            <!-- <a class="btn btn-success" href="/libros/detalle/{{i.id}}/Eliminar/" role="button">Actualizar</a> -->
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">Profile</a>
@@ -79,15 +79,23 @@
           </section>
 
           <h2></h2>
-          <div class="album text-muted">
-            {% for object in object_list %}
-            <div class="container">
-                    <h1>{{object.Nombre}}</h1>
-                    <p> {{object.Autor}}</p>
-                    <a href="/libros/detalle/{{object.id}}/">detalle libro</a> {{object.created|timesince}}  &nbsp;
-                  </div>
+          {% block Libro %}
+                  {% for i in object_list %}
+                  <h1>{{i.Nombre}}</h1>
+                  <p>{{i.Autor}}</p>
+                  <p><a href="/libros/detalle/{{i.id}}/">detalle libro</a> {{object.created|timesince}} &nbsp;</p>
+
+                    <a class="btn btn-outline-secondary btn-sm" href="/libros/detalle/{{i.id}}/eliminar/" role="button">Eliminar</a>
+                    <a class="btn btn-outline-secondary btn-sm" href="/libros/detalle/{{i.id}}/actualizar/" role="button">Actualizar</a>
+                    <a href="#" class="btn btn-outline-secondary btn-sm"> Twitter</a>
+                    <a href="#" class="btn btn-outline-secondary btn-sm">Like on Facebook</a>
+                    <a href="#" class="btn btn-outline-secondary btn-sm">Email me</a>
+                  </p>
                 </div>
-                {% endfor %}
+              </div>
+            {% endfor %}
+          {% endblock %}
+
               </div>
             </main>
           </div>

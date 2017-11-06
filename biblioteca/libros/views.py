@@ -18,7 +18,7 @@ def home_libros(request):
     v2 = "Usuario: "+v1
     return render(request, "home.html", {'v':v, 'v2':v2})
 
-class LibroCreateView(LoginRequiredMixin,FormUserNeededMixin,CreateView):
+class LibroCreateView( FormUserNeededMixin,CreateView):
     form_class = LibroModelForm
     template_name = "crearlibro_view.html"
     success_url = "/libros/lista"
@@ -30,7 +30,7 @@ class LibroUpdateView(UpdateView):
     template_name = "Actualizar_view.html"
     success_url = "/libros/lista"
 
-class LibroDeleteView(LoginRequiredMixin, DeleteView):
+class LibroDeleteView( DeleteView):
     model = Libro
     template_name = "Delete_confirm.html"
     success_url = reverse_lazy("libro_lista")
