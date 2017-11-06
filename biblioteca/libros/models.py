@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
 from django.conf import settings
@@ -7,10 +8,10 @@ from django.db import models
 
 class Libro(models.Model):
     user    = models.ForeignKey(settings.AUTH_USER_MODEL)
-    Nombre = models.CharField(max_length=120)
-    Autor = models.CharField(max_length=120)
-    Editorial = models.CharField(max_length=120)
-    ISBN = models.CharField(max_length=120)
+    Nombre = models.CharField(max_length=50)
+    Autor = models.CharField(max_length=50)
+    Editorial = models.CharField(max_length=50)
+    ISBN = models.CharField(max_length=50)
     precio = models.IntegerField()
     created = models.DateTimeField(auto_now = True)
 

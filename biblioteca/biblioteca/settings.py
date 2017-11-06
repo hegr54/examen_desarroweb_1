@@ -119,12 +119,6 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
-
-
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "biblioteca/s-storage"),
-]
-
 #STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR, "static-serve"))
 #print STATIC_ROOT
 
@@ -134,6 +128,12 @@ STATIC_URL = '/static/'
 #     # will not be served, long term storage
 #     os.path.join(BASE_DIR, "static-storage"),
 # ]
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "biblioteca/s-storage"),
+]
+
+
 
 
 # will be served
