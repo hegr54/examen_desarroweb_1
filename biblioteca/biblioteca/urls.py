@@ -20,7 +20,7 @@ from django.conf.urls.static import static
 
 from .views import home
 from libros.views import home_libros , libros_lista_libros, libros_detalle_libro,LibroListView
-from libros.views import LibroCreateView, LibroUpdateView
+from libros.views import LibroCreateView, LibroUpdateView,LibroDeleteView
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', home, name='home'),
@@ -30,6 +30,7 @@ urlpatterns = [
     url(r'^libros/lista/$', LibroListView.as_view(), name='libro_lista'),
     url(r'^libros/crear$', LibroCreateView.as_view(), name='libro_create'),
     url(r'^libros/detalle/(?P<pk>\d+)/actualizar/$', LibroUpdateView.as_view(), name='Libro_edit'),
+    url(r'^libros/detalle/(?P<pk>\d+)/eliminar/$', LibroDeleteView.as_view(), name='Libro_eliminado')
 
 
 ]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

@@ -3,7 +3,7 @@ from __future__ import unicode_literals
 
 from django.conf import settings
 from django.db import models
-
+from .validators import validate_content
 # Create your models here.
 
 class Libro(models.Model):

@@ -3,7 +3,7 @@ from __future__ import unicode_literals
 
 from django.shortcuts import render
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.views.generic import ListView,CreateView,UpdateView
+from django.views.generic import ListView,CreateView,UpdateView,DeleteView
 from .forms import LibroModelForm
 from .mixin import FormUserNeededMixin
 from django.urls import reverse_lazy
@@ -22,12 +22,18 @@ class LibroCreateView(LoginRequiredMixin,FormUserNeededMixin,CreateView):
     form_class = LibroModelForm
     template_name = "crearlibro_view.html"
     success_url = "/libros/lista"
+    login_url = "/admin"
 
 class LibroUpdateView(UpdateView):
     queryset = Libro.objects.all()
     form_class = LibroModelForm
     template_name = "Actualizar_view.html"
     success_url = "/libros/lista"
+
+class LibroDeleteView(LoginRequiredMixin, DeleteView):
+    model = Libro
+    template_name = "Delete_confirm.html"
+    success_url = reverse_lazy("libro_lista")
 
 class LibroListView(ListView):
     template_name = "lista_libros.html"
@@ -46,7 +52,7 @@ class LibroListView(ListView):
          context = super(LibroListView, self).get_context_data(*args, **kwargs)
          print context
          context['create_form'] = LibroModelForm()
-         context['create_url'] = reverse_lazy("Libro_create")
+         context['create_url'] = reverse_lazy("libro_lista")
          return context
 
 def libros_lista_libros(request):
