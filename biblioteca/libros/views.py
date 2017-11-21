@@ -24,16 +24,16 @@ class LibroCreateView( FormUserNeededMixin,CreateView):
     success_url = "/libros/lista"
     login_url = "/admin"
 
-class LibroUpdateView(UpdateView):
+class LibroUpdateView(FormUserNeededMixin,UpdateView):
     queryset = Libro.objects.all()
     form_class = LibroModelForm
     template_name = "Actualizar_view.html"
     success_url = "/libros/lista"
 
-class LibroDeleteView( DeleteView):
+class LibroDeleteView( LoginRequiredMixin,DeleteView):
     model = Libro
     template_name = "Delete_confirm.html"
-    success_url = reverse_lazy("libro_lista")
+    success_url = reverse_lazy('libro_lista')
 
 class LibroListView(ListView):
     template_name = "lista_libros.html"
@@ -52,7 +52,7 @@ class LibroListView(ListView):
          context = super(LibroListView, self).get_context_data(*args, **kwargs)
          print context
          context['create_form'] = LibroModelForm()
-         context['create_url'] = reverse_lazy("libro_lista")
+         context['create_url'] = reverse_lazy('libro_create')
          return context
 
 def libros_lista_libros(request):

@@ -15,15 +15,12 @@
     </nav>
     {% endblock %}
 {% block Libro %}
-        <form class="" action="" method="post">
-           {% csrf_token %}
-
-
-           <h1 class="text-muted">Estas seguro que quieres eliminar?</h1><h3>"{{object}}""</h3>
+      <form class="" action="" method="post">{% csrf_token %}
+      <p>Estas seguro que quieres eliminar "{{object}}""  ?</p>
+      <input class="btn btn-danger" type="submit" name="" value="Confirmar">
+      <a class="btn btn-danger" href="/libros/lista/">cancelar</a>
       </form>
       <div class="modal-footer">
-        <input class="btn btn-warning" type="submit" name="" value="Confirmar">
-         <a class="btn btn-danger" href="/libros/lista/">cancelar</a>
       </div>
     </div>
   </div>

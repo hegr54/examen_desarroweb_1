@@ -8,11 +8,11 @@ from .validators import validate_content
 
 class Libro(models.Model):
     user    = models.ForeignKey(settings.AUTH_USER_MODEL)
-    Nombre = models.CharField(max_length=50)
-    Autor = models.CharField(max_length=50)
-    Editorial = models.CharField(max_length=50)
-    ISBN = models.CharField(max_length=50)
-    precio = models.IntegerField()
+    Nombre = models.CharField(max_length=50, validators=[validate_content])
+    Autor = models.CharField(max_length=50, validators=[validate_content])
+    Editorial = models.CharField(max_length=50, validators=[validate_content])
+    ISBN = models.CharField(max_length=50, validators=[validate_content])
+    precio = models.IntegerField( validators=[validate_content])
     created = models.DateTimeField(auto_now = True)
 
     def __str__(self):

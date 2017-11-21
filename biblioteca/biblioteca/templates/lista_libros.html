@@ -67,18 +67,25 @@
           </li>
         </ul>
         <form class="form-inline mt-2 mt-md-0">
-          {% include "busquedas.html" %}
-        </form>
-      </div>
-    </nav>
-        <main class="col-sm-9 ml-sm-auto col-md-10 pt-3" role="main">
+          <form class="form-inline mt-2 mt-md-0">
+            <a class="btn btn-outline-secondary btn-sm" href="/libros/crear" role="button">Nuevo Libro</a>
+            {% include "busquedas.html" %}
+          </form>
+        </div>
+
+      </nav>
+      {%block content%}
+      {% if not request.GET.q %}
+      <div class="">
+
           <h1>Lista de libros en existencia</h1>
+          <h2>...............................................................................................</h2>
+                {%include "form.html" with form=create_form action_url=create_url btn_title='Libro'%}
+      </div>
 
-          <section class="row text-center placeholders">
-
-          </section>
-
-          <h2></h2>
+      {% endif %}
+      {%endblock%}
+          <article class="post">
           {% block Libro %}
                   {% for i in object_list %}
                   <h1>{{i.Nombre}}</h1>
