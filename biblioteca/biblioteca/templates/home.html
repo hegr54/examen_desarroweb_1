@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
   <head>
@@ -7,6 +8,72 @@
   <b> {{v}}<br /><b/>
     <b>{{v2}}<b/>
   <body>
+    <nav class="navbar is-white topNav">
+   <div class="container" >
+     <div class="navbar-brand">
+       <a class="navbar-item" href="../">
+           <!-- <img src="%static ""%" width="112" height="28"> -->
+       </a>
+       <div class="navbar-burger burger" data-target="topNav">
+         <span></span>
+         <span></span>
+         <span></span>
+       </div>
+     </div>
+       <div class="navbar-end">
+         <div class="navbar-item">
+           <div class="field is-grouped">
+             <p class="control">
+               <a class="button is-small" href="/accounts/register/">
+                 <span class="icon">
+                   <i class="fa fa-user-plus"></i>
+                 </span>
+                 <span>
+                   Register
+                 </span>
+               </a>
+             </p>
+             <p class="control">
+               <a class="button is-small is-info is-outlined" href="/login">
+                 <span class="icon">
+                   <i class="fa fa-user"></i>
+                 </span>
+                 <span>Login</span>
+               </a>
+             </p>
+           </div>
+         </div>
+       </div>
+     </div>
+   </div>
+</nav>
+{%block content%}
+{%endblock%}
+</section>
+  <footer class="footer">
+    <div class="container">
+      <div class="content has-text-centered">
+        <!-- <p>
+          <strong>Bulma Templates</strong> by <a href="https://github.com/dansup">Daniel Supernault</a>. The source code is licensed
+          <a href="http://opensource.org/licenses/mit-license.php">MIT</a>.
+        </p>
+        <p>
+          <a class="icon" href="https://github.com/dansup/bulma-templates">
+            <i class="fa fa-github"></i>
+          </a> -->
+        </p>
+      </div>
+    </div>
+  </footer>
+  <script
+ src="https://code.jquery.com/jquery-3.2.1.js"
+ integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+crossorigin="anonymous"></script>
 
+  <!-- <script async type="text/javascript" src="{% static 'static/bulma/js/bulma.js' %}"></script> -->
+
+  <!-- <script async type="text/javascript" src="../js/bulma.js"></script> -->
+  {%block script%}
+{%endblock script%}
   </body>
 </html>
