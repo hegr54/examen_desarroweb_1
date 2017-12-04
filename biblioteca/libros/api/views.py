@@ -25,7 +25,7 @@ class LibroListAPIView(generics.ListAPIView):
         query = self.request.GET.get("q", None)
         if query is not None:
             qs = qs.filter(
-                            Q(content__icontains=query) |
+                            Q(Nombre__icontains=query) |
                             Q(Autor__icontains=query) |
                             Q(user__username__icontains=query)
                           )

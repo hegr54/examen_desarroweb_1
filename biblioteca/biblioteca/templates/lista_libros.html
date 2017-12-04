@@ -87,9 +87,9 @@
       {%endblock%}
           <article class="post">
           {% block Libro %}
-                  {% for i in object_list %}
-                  <h1>{{i.Nombre}}</h1>
-                  <p>{{i.Autor}}</p>
+          {% for i in object_list %}
+          <h1>{{i.Nombre}}</h1>
+          <p>{{i.Autor}}</p>
                  <p class="alert alert-info" role="alert">{{i.created|timesince}}</p>
                   <p><a href="/libros/detalle/{{i.id}}/">detalle libro</a>  &nbsp;</p>
 

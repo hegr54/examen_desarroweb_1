@@ -11,6 +11,7 @@ class LibroModelSerializer(serializers.ModelSerializer):
     class Meta:
         model = Libro
         fields = [
+            "id",
             "user",
             "Nombre",
             "Autor",

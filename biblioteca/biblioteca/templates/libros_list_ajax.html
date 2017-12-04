@@ -29,7 +29,7 @@ $(document).ready(function(){
             "<div class='media'>"+
               "<div class='content'>"+
                 "<p>"+
-                  "<a href='/tweet/detailc/'"+librosId+"'/'>View</a> "+" | "+librosUser+ "&nbsp;"+ "|" +
+                  "<a href='/libros/detalle/"+librosId+"'/'>View</a> "+" | "+librosUser+ "&nbsp;"+ "|" +
                   librosDateDisplay+ " | "+
                 "</p>"+
               "</div>"+
@@ -41,9 +41,9 @@ $(document).ready(function(){
             "<div class='media'>"+
               "<div class='content'>"+
                 "<p>"+
-                  "<a href='/tweet/detailc/"+librosId+"'/'>View</a> "+" | "+librosUser+ "&nbsp;"+ "|" +
-                  librosDateDisplay+ " | " +"<a href='/tweet/detail/"+librosId+"/edit'>Edit</a> "+
-                    " | " +"<a href='/tweet/detail/"+librosId+"/delete'>Borrar</a> "+
+                  "<a href='/libros/detalle/"+librosId+"'/'>Informacion</a> "+" | "+librosUser+ "&nbsp;"+ "|" +
+                  librosDateDisplay+ " | " +"<a href='/libros/detalle/"+librosId+"/actualizar'>Actualizar</a> "+
+                    " | " +"<a href='/libros/detalle/"+librosId+"/eliminar'>Eliminar</a> "+
                 "</p>"+
               "</div>"+
             "</div>"
@@ -96,19 +96,23 @@ $(document).ready(function(){
 
 
 {%block Libro%}
-
+<!-- <a class="navbar-brand" href="accounts/profile/">lista de libros</a> -->
 <div class="container">
-  Buscar: {% include "busquedas.html" %}
+  {% include "busquedas.html" %}
 </div>
-
+{%block content%}
 {% if not request.GET.q %}
-  <div class="">
-    {%include "form.html" with form=create_form action_url=create_url btn_title='Tweet' form_id='tweet-form'%}
-  </div>
+<div class="">
+
+    <h1>Lista de libros en existencia</h1>
+    <h2>...............................................................................................</h2>
+          {%include "form.html" with form=create_form action_url=create_url btn_title='Libro' form_id='libros-form'%}
+</div>
 {% endif %}
+{%endblock%}
 <article class="post" id="ajax_libros">
 </article>
-<a href="#" id='loadmore'>Cargar mas tweets</a>
+<a href="#" id='loadmore'>Cargar mas libros</a>
 {% for object in object_list %}
 
 {% endfor %}

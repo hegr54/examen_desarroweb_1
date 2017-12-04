@@ -36,7 +36,7 @@ class LibroDeleteView( LoginRequiredMixin,DeleteView):
     success_url = reverse_lazy('libro_lista')
 
 class LibroListView(ListView):
-    template_name = "lista_libros.html"
+    template_name = "libros_list_ajax.html"
 
     def get_queryset(self, *args, **kwargs):
         qs = Libro.objects.all().order_by("-pk")
