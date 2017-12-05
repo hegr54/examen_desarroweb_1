@@ -29,7 +29,7 @@ $(document).ready(function(){
             "<div class='media'>"+
               "<div class='content'>"+
                 "<p>"+
-                  "<a href='/libros/detalle/"+librosId+"'/'>View</a> "+" | "+librosUser+ "&nbsp;"+ "|" +
+                  "<a class='alert alert-danger'href='/libros/detalle/"+librosId+"'/'>View</a> "+" | "+librosUser+ "&nbsp;"+ "|" +
                   librosDateDisplay+ " | "+
                 "</p>"+
               "</div>"+
@@ -41,9 +41,9 @@ $(document).ready(function(){
             "<div class='media'>"+
               "<div class='content'>"+
                 "<p>"+
-                  "<a href='/libros/detalle/"+librosId+"'/'>Informacion</a> "+" | "+librosUser+ "&nbsp;"+ "|" +
-                  librosDateDisplay+ " | " +"<a href='/libros/detalle/"+librosId+"/actualizar'>Actualizar</a> "+
-                    " | " +"<a href='/libros/detalle/"+librosId+"/eliminar'>Eliminar</a> "+
+                  "<a class='alert alert-danger' href='/libros/detalle/"+librosId+"'/'>Informacion</a> "+" | "+librosUser+ "&nbsp;"+ "|" +
+                  librosDateDisplay+ " | " +"<a class='alert alert-danger' href='/libros/detalle/"+librosId+"/actualizar'>Actualizar</a> "+
+                    " | " +"<a class='alert alert-danger' href='/libros/detalle/"+librosId+"/eliminar'>Eliminar</a> "+
                 "</p>"+
               "</div>"+
             "</div>"
@@ -96,21 +96,39 @@ $(document).ready(function(){
 
 
 {%block Libro%}
+<div class="container">
+     <header class="header clearfix">
+       <nav>
+         <ul class="nav nav-pills float-right">
+           <li class="nav-item">
+             <a class="nav-link active" href="/accounts/register/">Registrar<span class="sr-only">(current)</span></a>
+           </li>
+           <li class="nav-item">
+             <a class="nav-link" href="/Login/register">Login</a>
+           </li>
+           <li class="nav-item">
+             <a class="nav-link" href="/accounts/register/">Salir</a>
+           </li>
+         </ul>
+       </nav>
+       <h3 class="text-muted">Libreria</h3>
+     </header>
 <!-- <a class="navbar-brand" href="accounts/profile/">lista de libros</a> -->
 <div class="container">
   {% include "busquedas.html" %}
 </div>
 {%block content%}
+
 {% if not request.GET.q %}
 <div class="">
 
-    <h1>Lista de libros en existencia</h1>
-    <h2>...............................................................................................</h2>
+    <h1><div class="alert alert-success" role="alert">Lista de libros en existencia</h1>
+    <h2>ingresa tu libro favorito</h2>
           {%include "form.html" with form=create_form action_url=create_url btn_title='Libro' form_id='libros-form'%}
 </div>
 {% endif %}
 {%endblock%}
-<article class="post" id="ajax_libros">
+<article class="alert alert-success" id="ajax_libros">
 </article>
 <a href="#" id='loadmore'>Cargar mas libros</a>
 {% for object in object_list %}
